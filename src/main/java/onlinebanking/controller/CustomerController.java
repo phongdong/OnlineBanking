@@ -80,8 +80,6 @@ public class CustomerController {
 		headers.add("Customer Updated - ", String.valueOf(id));
 		return new ResponseEntity<Customer>(customer, headers, HttpStatus.OK);
 	}
-	
-	
 }
 
 
