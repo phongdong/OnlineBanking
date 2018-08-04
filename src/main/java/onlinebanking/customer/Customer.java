@@ -1,25 +1,28 @@
 package onlinebanking.customer;
 
-import onlinebanking.Account.Account;
+import onlinebanking.account.Account;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
 	private long id;
 	private String firstName;
 	private String lastName;
-	private Account account;
+	private List<Account> accounts;
 	
 	public Customer(long id, String firstName, String lastName) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		account = new Account(0, 0);
+		accounts = new ArrayList<Account>();
 	}
 	
-	public Customer(long id, String firstName, String lastName, double checkingAmount, double savingAmount) {
+	public Customer(long id, String firstName, String lastName, List<Account> accounts) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		account = new Account(checkingAmount, savingAmount);
+		accounts = new ArrayList<Account>();
 	}
 	
 	
@@ -29,9 +32,8 @@ public class Customer {
 		str.append("Customer Id:- " + getId());
 		str.append("\nFirst Name:- " + getFirstName());
 		str.append("\nLast Name:- " + getLastName());
-		str.append("\nChecking Account:- " + getAccount().getCheckingAmount());
-		str.append("\nSaving Account:- " + getAccount().getSavingAmount());
-		
+		str.append("\nAccounts:- " + getAccounts().toString());
+
 		return str.toString();
 	}
 	
@@ -59,13 +61,11 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
-	public Account getAccount() {
-		return account;
-	}
+    public List<Account> getAccounts() {
+        return accounts;
+    }
 
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-	
-	
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
 }
